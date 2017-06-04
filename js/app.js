@@ -21,7 +21,7 @@ function popupResult(result) {
     html: true,
     text: html,
     animation: 'slide-from-top',
-    confirmButtonColor:	"#000",
+    confirmButtonColor:	"#2980b9",
    });
 }
 
