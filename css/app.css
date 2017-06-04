@@ -42,6 +42,7 @@
 .inputfile:focus + label,
 .inputfile + label:hover {
    background-color: #f39c12;
+   color: #000;
 }
 
 .inputfile + label {
