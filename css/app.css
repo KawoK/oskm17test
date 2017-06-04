@@ -5,7 +5,7 @@
 }
 
 .sweet-alert button {
-  background-color: #FC2751;
+  background-color: #000;
   font-weight: bold;
   padding: 12px;
 }
@@ -35,13 +35,13 @@
   font-weight: bold;
   color: white;
   border-radius: 5px;
-  background-color: #FC2751;
+  background-color: #000;
   transition: all 400ms ease;
 }
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-   background-color: #EA6680;
+   background-color: #f39c12;
 }
 
 .inputfile + label {

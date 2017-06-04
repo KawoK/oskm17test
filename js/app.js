@@ -13,7 +13,7 @@ function popupResult(result) {
   }
   if (result.src) {
   	html = '<img src="' + result.src + '" />' +
-    '<a href="'+ result.src +'" id="downloadlink" class="button" download="ewako17.jpg">Download</a>' +
+    '<a href="'+ result.src +'" id="downloadlink" class="button" download="sparta16.jpg">Download</a>' +
     '<button class="confirm button" tabindex="1">Cancel</button>';
   }
   swal({
@@ -21,7 +21,7 @@ function popupResult(result) {
     html: true,
     text: html,
     animation: 'slide-from-top',
-    confirmButtonColor:	"#EA6680",
+    confirmButtonColor:	"#000",
    });
 }
 
@@ -111,7 +111,7 @@ function downloadCanvas(link, canvasId, filename) {
 }
 
 $('#downloadlink').on('click', '.sweet-alert', function() {
-  downloadCanvas(this, 'imageCanvas', 'ewako17.jpg');
+  downloadCanvas(this, 'imageCanvas', 'sparta16.jpg');
 });
 
 
