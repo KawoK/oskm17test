@@ -59,46 +59,35 @@ function handleImage(e) {
   // Clear canvas
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  var reader = new FileReader();
-  reader.onload = function(event) {
-    $('.cr-slider').css('visibility', 'visible');
-    $('.loader').remove();
+  var img_url = e.target.files[0];
+  loadImage.parseMetaData(img_url, function(data) {
+    var ori = 0;
+    if (data.exif) {
+      ori = data.exif.get('Orientation');
+    }
 
-    // Resize the image
-    var image = new Image();
-    image.onload = function (imageEvent) {
+    var loadingImage = loadImage(
+      img_url,
+      function(canvas) {
+        $('.cr-slider').css('visibility', 'visible');
+        $('.loader').remove();
 
-        // Resize the image
-        var canvas = document.createElement('canvas'),
-            max_size = 1000,// TODO : pull max size from a site config
-            width = image.width,
-            height = image.height;
-        if (width > height) {
-            if (width > max_size) {
-                height *= max_size / width;
-                width = max_size;
-            }
-        } else {
-            if (height > max_size) {
-                width *= max_size / height;
-                height = max_size;
-            }
-        }
-		canvas.width = width;
-        canvas.height = height;
-        canvas.getContext('2d').drawImage(image, 0, 0, width, height);
         var dataUrl = canvas.toDataURL('image/jpeg');
         basic.croppie('bind', {
             url: dataUrl,
         });
-    }
-    image.src = event.target.result;
-  }
+      },
+      {
+        maxWidth: 1000,
+        maxHeight: 1000,
+        orientation: ori,
+        canvas: true
+      });
 
-  reader.onloadstart = function(event) {
-    $('.cr-viewport').append('<div class="loader"></div>');
-  }
-  reader.readAsDataURL(e.target.files[0]);
+    loadingImage.onloadstart = function(event) {
+      $('.cr-viewport').append('<div class="loader"></div>');
+    }
+  });
 }
 
 
