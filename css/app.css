@@ -52,6 +52,7 @@
 /* Croppie CSS */
 .croppie-container {
   padding: 10px;
+  touch-action: none;
 }
 .croppie-container .cr-slider-wrap {
   margin-top: 5px;
