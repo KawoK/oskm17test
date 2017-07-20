@@ -41,7 +41,7 @@
 
 .inputfile:focus + label,
 .inputfile + label:hover {
-   background-color: #F44336;
+   background-color: #f44336;
    color: #000;
 }
 
@@ -80,7 +80,7 @@
 /* Main */
 body {
   font-family: 'Fira Sans', sans-serif;
-  background-color: #F44336;
+  background-color: #f44336;
 }
 
 .title {
@@ -130,7 +130,7 @@ img {
 }
 
 .button:hover {
-  background-color: #F44336;
+  background-color: #f44336;
   color: #000;
 }
 
